@@ -66,6 +66,7 @@ $preinstalledApps = @(
     "Microsoft.MicrosoftOfficeHub",
     "Microsoft.SkypeApp",
     "Microsoft.Office.OneNote",
+    "Microsoft.Office.Desktop",
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
     "Microsoft.Print3D"
@@ -83,15 +84,21 @@ Write-Host "All possible apps removed" -ForegroundColor Green
 
 #UNINSTALLING OFFICE
 #------------------------------------------------------------------
+#find proframms: https://www.majorgeeks.com/content/page/uninstall_command_prompt.html
 
 Write-Host ""
 Write-Host "Try to uninstall office... "
 Write-Host "------------------------------------" 
 
 
-(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Licensing Component"').Uninstall()
-(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Localization Component"').Uninstall()
-(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
+#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Licensing Component"').Uninstall()
+#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Localization Component"').Uninstall()
+#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
+
+$app = Get-WmiObject -Class Win32_Product | Where-Object {
+    $_.Name -match “Microsoft Office 365 - en-us” }
+    
+    Uninstall-Package $app.name
 
 Write-Host "Tried to uninstall office" -ForegroundColor Green
 
