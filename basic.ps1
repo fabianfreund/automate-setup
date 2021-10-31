@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 3;
+$versionNumber = 4;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -8,7 +8,7 @@ $versionNumber = 3;
 Write-Host ""
 Write-Host "TRUEVR BATCHINSTALLATION BASIC" -ForegroundColor Green
 Write-Host "------------------------------------" 
-Write-Host "Version: " + $versionNumber
+Write-Host "Version: " $versionNumber
 #Write-Host "3" -NoNewline
 #Start-Sleep 1
 #Write-Host "...2" -NoNewline
@@ -98,13 +98,14 @@ Write-Host "------------------------------------"
 #(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Localization Component"').Uninstall()
 #(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
 
-$App = (
-    "Microsoft Office 365 - en-us"
+$App = @(
+    "Microsoft Office 365 - en-us",
+    "Microsoft Office 365 - de-de"
 )
 
 gwmi win32_product|
     where { $App -contains $_.Name }|
-    foreach { $_.Uninstall() } | out-nul
+    foreach { $_.Uninstall() }
 
 Write-Host "Tried to uninstall office" -ForegroundColor Green
 
