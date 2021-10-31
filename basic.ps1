@@ -26,6 +26,7 @@ Write-Host "- changed standby timeout to 0"
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 #detailed app list: https://gal.vin/posts/removing-uwp-apps-mdt/
+#get list of installed apps ond a computer: "Get-AppxPackage –AllUsers"
 
 Write-Host ""
 Write-Host "Removing Preinstalled Apps..." -ForegroundColor Green
@@ -43,7 +44,9 @@ $preinstalledApps = @(
     "Microsoft.MicrosoftOfficeHub",
     "Fitbit.FitbitCoach",
     "4DF9E0F8.Netflix",
-    "Microsoft.GetHelp"
+    "Microsoft.GetHelp",
+    "Microsoft.MicrosoftOfficeHub",
+    "Microsoft.Office.Desktop"
 )
 
 foreach ($uwp in $preinstalledApps) {
