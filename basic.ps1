@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 5;
+$versionNumber = 6;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -100,7 +100,7 @@ Write-Host "------------------------------------"
 
 
 $App = Get-WmiObject -query "Select * from win32_product WHERE Name like " "Microsoft 365 - en-us"
-msiexec /uninstall /quiet $App
+msiexec /uninstall $App
 
 
 #------------------------------------------------------------------
