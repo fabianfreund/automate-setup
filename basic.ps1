@@ -26,6 +26,18 @@ Powercfg /Change standby-timeout-ac 0
 Write-Host ""
 Write-Host "Disable sleep completed" -ForegroundColor Green
 
+#Set highperformance mode
+#------------------------------------------------------------------
+
+Write-Host ""
+Write-Host "Setting Highperformance mode..." 
+Write-Host "------------------------------------" 
+
+powercfg.exe /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
+
+Write-Host ""
+Write-Host "Highperformance mode set" -ForegroundColor Green
+
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 #detailed app list: https://gal.vin/posts/removing-uwp-apps-mdt/
@@ -59,8 +71,10 @@ $preinstalledApps = @(
 )
 
 foreach ($uwp in $preinstalledApps) {
-    Write-Host "Try to remove: " 
+
+    Write-Host "Try to remove: "  $uwp
     Get-AppxPackage -Name $uwp | Remove-AppxPackage
+
 }
 
 Write-Host ""
