@@ -68,9 +68,7 @@ $preinstalledApps = @(
     "Microsoft.Office.OneNote",
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
-    "Microsoft.Print3D",
-    "king.com.CandyCrushSaga",
-    "Microsoft.Office.Word"
+    "Microsoft.Print3D"
 )
 
 foreach ($uwp in $preinstalledApps) {
@@ -83,4 +81,7 @@ foreach ($uwp in $preinstalledApps) {
 Write-Host ""
 Write-Host "All possible apps removed" -ForegroundColor Green
 
+
+$app = Get-WmiObject Win32_Product | Where-Object { $_.name -eq "*Word" }
+Write-Host $app
 #------------------------------------------------------------------
