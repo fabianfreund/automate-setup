@@ -104,4 +104,5 @@ Uninstall-Package $app.name
 Write-Host "Tried to uninstall office" -ForegroundColor Green
 
 
+
 #------------------------------------------------------------------
