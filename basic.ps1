@@ -3,8 +3,13 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
 
-Write-Host "Starting Batchinstallation" -ForegroundColor Green
+Write-Host "Starting Batchinstallation for TrueVR Client" -ForegroundColor Green
 Write-Host "----------------------------------------" -ForegroundColor Green
+Write-Host "3..." 
+Start-Sleep 1
+Write-Host "2..." -NoNewline
+Start-Sleep 1
+Write-Host "1..." -NoNewline
 Start-Sleep 1
 
 #DISABLE STANDBY
@@ -14,12 +19,15 @@ Write-Host ""
 Write-Host "Disable Sleep on AC Power..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
 Powercfg /Change monitor-timeout-ac 0
+Write-Host "- changed monitor timeout to 0"
 Powercfg /Change standby-timeout-ac 0
+Write-Host "- changed standby timeout to 0"
 
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 #detailed app list: https://gal.vin/posts/removing-uwp-apps-mdt/
 
+Write-Host ""
 Write-Host "Removing Preinstalled Apps..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
 
