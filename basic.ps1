@@ -1,5 +1,7 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
+$versionNumber = 1;
+
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
 
@@ -11,7 +13,8 @@ Write-Host "------------------------------------"
 #Write-Host "...2" -NoNewline
 #Start-Sleep 1
 #Write-Host "...1"
-#Start-Sleep 1
+Start-Sleep 1
+Write-Host $versionNumber
 
 #DISABLE STANDBY
 #------------------------------------------------------------------
