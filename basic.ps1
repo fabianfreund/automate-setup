@@ -51,7 +51,8 @@ $preinstalledApps = @(
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
     "Microsoft.Print3D",
-    "king.com.CandyCrushSaga"
+    "king.com.CandyCrushSaga",
+    "Microsoft.Office.Word"
 )
 
 foreach ($uwp in $preinstalledApps) {
