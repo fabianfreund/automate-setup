@@ -97,7 +97,7 @@ Write-Host "------------------------------------"
 
 $App = Get-WmiObject -query "Select * from win32_product WHERE Name like Microsoft Office 365 - en-us"
 
-msiexec /uninstall $App
+msiexec /uninstall /quiet $App
 
 Write-Host "Tried to uninstall office" -ForegroundColor Green
 
