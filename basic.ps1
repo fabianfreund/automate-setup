@@ -4,8 +4,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 #------------------------------------------------------------------
 
 Write-Host "Starting Batchinstallation for TrueVR Client" -ForegroundColor Green
-Write-Host "----------------------------------------" -ForegroundColor Green
-Write-Host "3..." 
+Write-Host "------------------------------------" -ForegroundColor Green
+Write-Host "3..." -NoNewline
 Start-Sleep 1
 Write-Host "2..." -NoNewline
 Start-Sleep 1
@@ -46,8 +46,8 @@ $preinstalledApps = @(
     "Microsoft.GetHelp"
 )
 
-#foreach ($uwp in $preinstalledApps) {
-#    Get-AppxPackage -Name $uwp | Remove-AppxPackage
-#}
+foreach ($uwp in $preinstalledApps) {
+    Get-AppxPackage -Name $uwp | Remove-AppxPackage
+}
 
 #------------------------------------------------------------------
