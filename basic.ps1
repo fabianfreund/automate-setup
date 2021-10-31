@@ -38,8 +38,8 @@ $preinstalledApps = @(
     "Microsoft.GetHelp"
 )
 
-foreach ($uwp in $preinstalledApps) {
-    Get-AppxPackage -Name $uwp | Remove-AppxPackage
-}
+#foreach ($uwp in $preinstalledApps) {
+#    Get-AppxPackage -Name $uwp | Remove-AppxPackage
+#}
 
 #------------------------------------------------------------------
