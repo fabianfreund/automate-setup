@@ -5,11 +5,11 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 Write-Host "Starting Batchinstallation for TrueVR Client" -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
-Write-Host "3..." -NoNewline
+Write-Host "3" -NoNewline
 Start-Sleep 1
-Write-Host "2..." -NoNewline
+Write-Host "...2" -NoNewline
 Start-Sleep 1
-Write-Host "1..." -NoNewline
+Write-Host "...1" -NoNewline
 Start-Sleep 1
 
 #DISABLE STANDBY
@@ -18,10 +18,10 @@ Start-Sleep 1
 Write-Host ""
 Write-Host "Disable Sleep on AC Power..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
+Write-Host "- change monitor timeout to 0" -ForegroundColor Green
 Powercfg /Change monitor-timeout-ac 0
-Write-Host "- changed monitor timeout to 0"
+Write-Host "- change standby timeout to 0" -ForegroundColor Green
 Powercfg /Change standby-timeout-ac 0
-Write-Host "- changed standby timeout to 0"
 
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
@@ -46,7 +46,9 @@ $preinstalledApps = @(
     "4DF9E0F8.Netflix",
     "Microsoft.GetHelp",
     "Microsoft.MicrosoftOfficeHub",
-    "Microsoft.Office.Word"
+    "Microsoft.SkypeApp",
+    "Microsoft.Office.OneNote",
+    "Microsoft.XboxApp"
 )
 
 foreach ($uwp in $preinstalledApps) {
