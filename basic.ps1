@@ -3,8 +3,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
 
-Write-Host "Starting Batchinstallation for TrueVR Client" -ForegroundColor Green
-Write-Host "------------------------------------" -ForegroundColor Green
+Write-Host "Starting Batchinstallation for TrueVR Client" 
+Write-Host "------------------------------------" 
 Write-Host "3" -NoNewline
 Start-Sleep 1
 Write-Host "...2" -NoNewline
@@ -16,12 +16,15 @@ Start-Sleep 1
 #------------------------------------------------------------------
 
 Write-Host ""
-Write-Host "Disable Sleep on AC Power..." -ForegroundColor Green
-Write-Host "------------------------------------" -ForegroundColor Green
-Write-Host "- change monitor timeout to 0" -ForegroundColor Green
+Write-Host "Disable Sleep on AC Power..." 
+Write-Host "------------------------------------" 
+Write-Host "- change monitor timeout to 0" 
 Powercfg /Change monitor-timeout-ac 0
-Write-Host "- change standby timeout to 0" -ForegroundColor Green
+Write-Host "- change standby timeout to 0" 
 Powercfg /Change standby-timeout-ac 0
+
+Write-Host ""
+Write-Host "Disable sleep completed" -ForegroundColor Green
 
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
@@ -29,8 +32,8 @@ Powercfg /Change standby-timeout-ac 0
 #get list of installed apps ond a computer: "Get-AppxPackage –AllUsers"
 
 Write-Host ""
-Write-Host "Removing Preinstalled Apps..." -ForegroundColor Green
-Write-Host "------------------------------------" -ForegroundColor Green
+Write-Host "Removing Preinstalled Apps..." 
+Write-Host "------------------------------------" 
 
 $preinstalledApps = @(
     "Microsoft.Messaging",
@@ -58,5 +61,8 @@ $preinstalledApps = @(
 foreach ($uwp in $preinstalledApps) {
     Get-AppxPackage -Name $uwp | Remove-AppxPackage
 }
+
+Write-Host ""
+Write-Host "All possible apps removed" -ForegroundColor Green
 
 #------------------------------------------------------------------
