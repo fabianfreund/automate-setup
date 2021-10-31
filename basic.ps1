@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 6;
+$versionNumber = 7;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -99,8 +99,7 @@ Write-Host "------------------------------------"
 #(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
 
 
-$App = Get-WmiObject -query "Select * from win32_product WHERE Name like " "Microsoft 365 - en-us"
-msiexec /uninstall $App
+Get-AppxPackage -name “Microsoft.Office.Desktop” | Remove-AppxPackage
 
 
 #------------------------------------------------------------------
