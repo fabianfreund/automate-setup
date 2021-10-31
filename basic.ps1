@@ -46,7 +46,7 @@ $preinstalledApps = @(
     "4DF9E0F8.Netflix",
     "Microsoft.GetHelp",
     "Microsoft.MicrosoftOfficeHub",
-    "Microsoft.Office.Desktop"
+    "Microsoft.Office.Word"
 )
 
 foreach ($uwp in $preinstalledApps) {
