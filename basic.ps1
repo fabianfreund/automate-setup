@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 9;
+$versionNumber = 10;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -47,7 +47,7 @@ Write-Host "Highperformance mode set" -ForegroundColor Green
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp.ps1'))
+(New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp.ps1')
 
 #UNINSTALLING OFFICE
 #------------------------------------------------------------------
