@@ -6,12 +6,12 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 Write-Host ""
 Write-Host "TRUEVR BATCHINSTALLATION BASIC" -ForegroundColor Green
 Write-Host "------------------------------------" 
-Write-Host "3" -NoNewline
-Start-Sleep 1
-Write-Host "...2" -NoNewline
-Start-Sleep 1
-Write-Host "...1"
-Start-Sleep 1
+#Write-Host "3" -NoNewline
+#Start-Sleep 1
+#Write-Host "...2" -NoNewline
+#Start-Sleep 1
+#Write-Host "...1"
+#Start-Sleep 1
 
 #DISABLE STANDBY
 #------------------------------------------------------------------
