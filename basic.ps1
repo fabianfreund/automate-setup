@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 15;
+$versionNumber = 16;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -48,7 +48,7 @@ Write-Host "Highperformance mode set" -ForegroundColor Green
 #------------------------------------------------------------------
 #install from url: https://stackoverflow.com/questions/33205298/how-to-use-powershell-to-download-a-script-file-then-execute-it-with-passing-in
 
-. { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp_app.ps1 }
+. { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp_app.ps1 } | iex; 
 
 
 #------------------------------------------------------------------
