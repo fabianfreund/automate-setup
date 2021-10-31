@@ -81,9 +81,19 @@ foreach ($uwp in $preinstalledApps) {
 Write-Host ""
 Write-Host "All possible apps removed" -ForegroundColor Green
 
-Write-Host "Search for word... "
-$app = Get-WmiObject Win32_Product | where { $_.name -eq "Word" }
-Write-Host "Found app: " $app
+#UNINSTALLING OFFICE
+#------------------------------------------------------------------
+
+Write-Host ""
+Write-Host "Try to uninstall office... "
+Write-Host "------------------------------------" 
+
+
+(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Licensing Component"').Uninstall()
+(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Localization Component"').Uninstall()
+(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
+
+Write-Host "Tried to uninstall office" -ForegroundColor Green
 
 
 #------------------------------------------------------------------
