@@ -3,13 +3,14 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
 
-Write-Host "Starting Batchinstallation for TrueVR Client" 
+Write-Host ""
+Write-Host "TRUEVR BATCHINSTALLATION BASIC" -ForegroundColor Green
 Write-Host "------------------------------------" 
 Write-Host "3" -NoNewline
 Start-Sleep 1
 Write-Host "...2" -NoNewline
 Start-Sleep 1
-Write-Host "...1" -NoNewline
+Write-Host "...1"
 Start-Sleep 1
 
 #DISABLE STANDBY
@@ -32,6 +33,8 @@ Write-Host "Disable sleep completed" -ForegroundColor Green
 Write-Host ""
 Write-Host "Setting Highperformance mode..." 
 Write-Host "------------------------------------" 
+
+Write-Host "Add mode: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c..." 
 
 powercfg.exe /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 
