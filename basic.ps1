@@ -81,7 +81,7 @@ foreach ($uwp in $preinstalledApps) {
 Write-Host ""
 Write-Host "All possible apps removed" -ForegroundColor Green
 
-
-$app = Get-WmiObject Win32_Product | where { $_.name -eq "*Word" }
+Write-Host "Search for word... "
+$app = Get-WmiObject -Class Win32_Product ` -Filter "Name = 'Word'"
 Write-Host "Found app: " $app
 #------------------------------------------------------------------
