@@ -96,9 +96,10 @@ Write-Host "------------------------------------"
 #(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
 
 $app = Get-WmiObject -Class Win32_Product | Where-Object {
-    $_.Name -match “Microsoft Office 365 - en-us” }
+    $_.Name -like “Microsoft Office 365 - en-us” 
+}
     
-    Uninstall-Package $app.name
+Uninstall-Package $app.name
 
 Write-Host "Tried to uninstall office" -ForegroundColor Green
 
