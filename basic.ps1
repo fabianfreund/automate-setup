@@ -59,6 +59,7 @@ $preinstalledApps = @(
 )
 
 foreach ($uwp in $preinstalledApps) {
+    Write-Host "Try to remove: " + $uwp 
     Get-AppxPackage -Name $uwp | Remove-AppxPackage
 }
 
