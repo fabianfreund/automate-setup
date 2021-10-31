@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 8;
+$versionNumber = 9;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -53,17 +53,6 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 #------------------------------------------------------------------
 #find proframms: https://www.majorgeeks.com/content/page/uninstall_command_prompt.html
 
-Write-Host ""
-Write-Host "Try to uninstall office... "
-Write-Host "------------------------------------" 
-
-
-#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Licensing Component"').Uninstall()
-#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Localization Component"').Uninstall()
-#(Get-WMIObject Win32_Product -Filter 'name="Office 16 Click-to-Run Extensibility Component"').Uninstall()
-
-
-Get-AppxPackage -name “Microsoft.Office.Desktop” | Remove-AppxPackage
 
 
 #------------------------------------------------------------------
