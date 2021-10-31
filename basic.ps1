@@ -84,4 +84,6 @@ Write-Host "All possible apps removed" -ForegroundColor Green
 Write-Host "Search for word... "
 $app = Get-WmiObject -Class Win32_Product ` -Filter "Name = 'Word'"
 Write-Host "Found app: " $app
+
+
 #------------------------------------------------------------------
