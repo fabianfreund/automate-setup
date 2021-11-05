@@ -10,6 +10,7 @@ Write-Host "------------------------------------"
 $preinstalledApps = @(
     "Microsoft.Messaging",
     "king.com.CandyCrushSaga",
+    "king.com.CandyCrushSodaSaga",
     "Microsoft.BingNews",
     "Microsoft.BingWeather",
     "Microsoft.MicrosoftSolitaireCollection",
@@ -31,8 +32,13 @@ $preinstalledApps = @(
 
 foreach ($uwp in $preinstalledApps) {
 
-    Write-Host "Try to remove: "  $uwp
-    Get-AppxPackage -Name $uwp | Remove-AppxPackage
+
+    if (Get-AppxPackage -Name $uwp) {
+        Write-Host "Try to remove: "  $uwp
+        Get-AppxPackage -Name $uwp | Remove-AppxPackage
+    }else {
+        Write-Host $uwp " is not installed on your system"
+    }
 
 }
 
