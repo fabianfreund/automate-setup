@@ -30,10 +30,12 @@ $preinstalledApps = @(
     "Microsoft.Print3D"
 )
 
+Write-Host "- uninstalling apps..." 
+Write-Host ""
+
 foreach ($uwp in $preinstalledApps) {
 
-    Write-Host "- uninstalling apps..." 
-    Write-Host "" 
+     
 
     if (Get-AppxPackage -Name $uwp) {
         Write-Host "Try to remove: "  $uwp
@@ -41,12 +43,14 @@ foreach ($uwp in $preinstalledApps) {
     }
 }
 
+Write-Host "- check uninstalled apps..." 
+Write-Host "" 
+
 foreach ($uwp in $preinstalledApps) {
 
-    Write-Host "- check uninstalled apps..." 
-    Write-Host "" 
-
-    if (!Get-AppxPackage -Name $uwp) {
+    if (Get-AppxPackage -Name $uwp) {
+        Write-Host "Not Removed: "  $uwp
+    }else{
         Write-Host "Removeed: "  $uwp
     }
 
