@@ -32,12 +32,22 @@ $preinstalledApps = @(
 
 foreach ($uwp in $preinstalledApps) {
 
+    Write-Host "- uninstalling apps..." 
+    Write-Host "" 
 
     if (Get-AppxPackage -Name $uwp) {
         Write-Host "Try to remove: "  $uwp
         Get-AppxPackage -Name $uwp | Remove-AppxPackage
-    }else {
-        Write-Host $uwp " is not installed on your system"
+    }
+}
+
+foreach ($uwp in $preinstalledApps) {
+
+    Write-Host "- check uninstalled apps..." 
+    Write-Host "" 
+
+    if (!Get-AppxPackage -Name $uwp) {
+        Write-Host "Removeed: "  $uwp
     }
 
 }
