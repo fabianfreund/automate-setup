@@ -1,6 +1,7 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 31;
+$versionNumber = 32;
+$startTime = Get-Date
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -9,11 +10,7 @@ Write-Host ""
 Write-Host "TRUEVR BATCHINSTALLATION BASIC" -ForegroundColor Green
 Write-Host "------------------------------------" 
 Write-Host "Version: " $versionNumber
-#Write-Host "3" -NoNewline
-#Start-Sleep 1
-#Write-Host "...2" -NoNewline
-#Start-Sleep 1
-#Write-Host "...1"
+Write-Host "Start Time: " $startTime
 Start-Sleep 1
 
 #DISABLE STANDBY
@@ -37,7 +34,7 @@ Write-Host ""
 Write-Host "Setting Highperformance mode..." 
 Write-Host "------------------------------------" 
 
-Write-Host "Add mode: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c..." 
+Write-Host "- Add mode: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c..." 
 
 powercfg.exe /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 
@@ -48,9 +45,19 @@ Write-Host "Highperformance mode set" -ForegroundColor Green
 #------------------------------------------------------------------
 #install from url: https://stackoverflow.com/questions/33205298/how-to-use-powershell-to-download-a-script-file-then-execute-it-with-passing-in
 
+. { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/remove_tiles.ps1 } | iex; 
 . { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp_app.ps1 } | iex; 
 . { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_software.ps1 } | iex; 
 . { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_office.ps1 } | iex; 
+
+
+Write-Host ""
+Write-Host "Client setup completed" -ForegroundColor Green
+Write-Host "------------------------------------" -ForegroundColor Green
+
+$finalTime = Get-Date
+Write-Host "This setup run for $($finalTime - $startTime) (HH:MM:SS)"
+Write-Host ""
 
 
 #------------------------------------------------------------------
