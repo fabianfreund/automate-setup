@@ -15,8 +15,6 @@ $preinstalledSoftware = @(
     "HP Notifications",
     "Office 16 Click-to-Run Licensing Component",
     "Office 16 Click-to-Run Localization Component",
-    "Office 16 Click-to-Run Localization Component",
-    "Office 16 Click-to-Run Localization Component",
     "Office 16 Click-to-Run Extensibility Component"
 )
 
