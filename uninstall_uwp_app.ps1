@@ -27,7 +27,9 @@ $preinstalledApps = @(
     "Microsoft.Office.Desktop",
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
-    "Microsoft.Print3D"
+    "Microsoft.Print3D",
+    "Microsoft.Microsoft3DViewer",
+    "Microsoft.Whiteboard"
 )
 
 Write-Host "- uninstalling apps..." 
@@ -35,14 +37,14 @@ Write-Host ""
 
 foreach ($uwp in $preinstalledApps) {
 
-     
-
     if (Get-AppxPackage -Name $uwp) {
         Write-Host "Try to remove: "  $uwp
         Get-AppxPackage -Name $uwp | Remove-AppxPackage
     }
+    
 }
 
+Write-Host ""
 Write-Host "- check uninstalled apps..." 
 Write-Host "" 
 
