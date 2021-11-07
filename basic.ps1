@@ -1,6 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 26;
+$versionNumber = 27;
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
@@ -50,6 +50,8 @@ Write-Host "Highperformance mode set" -ForegroundColor Green
 
 . { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_uwp_app.ps1 } | iex; 
 . { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_software.ps1 } | iex; 
+. { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/uninstall_office.ps1 } | iex; 
+
 
 #. { iwr -useb https://raw.githubusercontent.com/fabianfreund/automate-setup/main/download_gpo.ps1 } | iex; 
 

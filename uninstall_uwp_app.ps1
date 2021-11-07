@@ -1,4 +1,4 @@
-#REMOVE PREINSTALLED SOFTWARE
+#REMOVE PREINSTALLED UWP APPS
 #------------------------------------------------------------------
 #detailed app list: https://gal.vin/posts/removing-uwp-apps-mdt/
 #get list of installed apps ond a computer: "Get-AppxPackage –AllUsers"
@@ -11,6 +11,7 @@ $preinstalledApps = @(
     "Microsoft.Messaging",
     "king.com.CandyCrushSaga",
     "king.com.CandyCrushSodaSaga",
+    "king.com.CandyCrushFriends",
     "Microsoft.BingNews",
     "Microsoft.BingWeather",
     "Microsoft.MicrosoftSolitaireCollection",
@@ -25,11 +26,16 @@ $preinstalledApps = @(
     "Microsoft.SkypeApp",
     "Microsoft.Office.OneNote",
     "Microsoft.Office.Desktop",
+    "Microsoft.Office.Sway",
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
     "Microsoft.Print3D",
     "Microsoft.Microsoft3DViewer",
-    "Microsoft.Whiteboard"
+    "Microsoft.Whiteboard",
+    "Microsoft.Todos",
+    "king.com.FarmHeroesSaga",
+    "HuluLLC.HuluPlus",
+    "King.com.CandyCrushFriends"
 )
 
 Write-Host "- uninstalling apps..." 
@@ -57,6 +63,12 @@ foreach ($uwp in $preinstalledApps) {
     }
 
 }
+
+Write-Host ""
+Write-Host "- Disable consumer apps..-" 
+
+
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /F
 
 Write-Host ""
 Write-Host "All possible apps removed" -ForegroundColor Green
