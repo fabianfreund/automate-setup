@@ -18,7 +18,7 @@ $preinstalledSoftware = @(
     "Microsoft Office 365 - en-us",
     "Microsoft Office 365 - fr-fr",
     "Microsoft Office 365 - de-de",
-    "Microsoft Office*"
+    "Microsoft Office"
 )
 
 

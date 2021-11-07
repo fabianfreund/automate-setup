@@ -29,13 +29,27 @@ $preinstalledApps = @(
     "Microsoft.Office.Sway",
     "Microsoft.XboxApp",
     "Microsoft.GamingApp",
+    "Microsoft.XboxGamingOverlay",
     "Microsoft.Print3D",
+    "Microsoft.Microsoft3DViewer",
     "Microsoft.Microsoft3DViewer",
     "Microsoft.Whiteboard",
     "Microsoft.Todos",
     "king.com.FarmHeroesSaga",
     "HuluLLC.HuluPlus",
-    "King.com.CandyCrushFriends"
+    "Microsoft.WindowsMaps",
+    "Microsoft.Messaging",
+    "Microsoft.Windows.Photos",
+    "Microsoft.ZuneMusic",
+    "Microsoft.ZuneVideo",
+    "Microsoft.LanguageExperiencePackde-DE",
+    "Microsoft.LanguageExperiencePacken-US",
+    "Microsoft.LanguageExperiencePacken-GB",
+    "Microsoft.OneConnect",
+    "Microsoft.WindowsAlarms",
+    "AD2F1837.HPJumpStarts",
+    "Microsoft.LockApp"
+
 )
 
 Write-Host "- uninstalling apps..." 
@@ -65,7 +79,7 @@ foreach ($uwp in $preinstalledApps) {
 }
 
 Write-Host ""
-Write-Host "- Disable consumer apps..-" 
+Write-Host "- Disable consumer apps.." 
 
 
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /F
