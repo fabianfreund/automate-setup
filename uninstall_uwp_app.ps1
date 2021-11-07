@@ -47,8 +47,7 @@ $preinstalledApps = @(
     "Microsoft.LanguageExperiencePacken-GB",
     "Microsoft.OneConnect",
     "Microsoft.WindowsAlarms",
-    "AD2F1837.HPJumpStarts",
-    "Microsoft.LockApp"
+    "AD2F1837.HPJumpStarts"
 
 )
 
