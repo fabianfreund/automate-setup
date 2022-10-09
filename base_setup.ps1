@@ -1,10 +1,34 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
-$versionNumber = 32;
+$versionNumber = 33;
 $startTime = Get-Date
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
+Write-Host "  "                                      
+Write-Host "                                      /(((((((           (((("                                   
+Write-Host "                                  (((((((/////////   ///////("                       
+Write-Host "                              (((((((////////////(((###//////                 ,(#"           
+Write-Host "                          ((((((/(//////////*/((((((#((((((*/                 ,(/*/"       
+Write-Host "                      (((((((((/////////*////((((/    ((((///                 *"       
+Write-Host "                  (((((((((((///////////(((((.            ///       (*(("     
+Write-Host "              (((((((((((((((//,(((((((((                             /%          ((/" 
+Write-Host "         ,((((((((((((((((/,(((((((((                                         (((((**" 
+Write-Host "     (##(((((((((((((((*########(                  //                             ///"
+Write-Host "     ###((((((((((((#########                 ./****/////            //                     /#("
+Write-Host "     ###(((((((##########                 /(///********/////(.       /**(((                 #"
+Write-Host "     ###(((((((((******////                  ((((((/((((((#          /*##"
+Write-Host "     ###(((((((((((((*/////////                  (((((*                            ("  
+Write-Host "       /#((((((((((((((((*/////////                                            ////("    
+Write-Host "           .(((((((((((((((//,///((((((                         *#                **"      
+Write-Host "                ((((((((((((/////*(((((((((                 //***#(((("        
+Write-Host "                    (((((((((((////////(((((((#*        /////////(((((((//"        
+Write-Host "                        ((((((((//////////*(########((((/////,//////////(((,**."         
+Write-Host "                            ((((((/////////////#####(((((,////////////(((((*"           
+Write-Host "                                (((((//////////////#/////////////((((((."             
+Write-Host "                                    ((((((/(////       (//////((((("                
+Write-Host "                                        /(((               (((("                  
+Write-Host " "
 
 Write-Host ""
 Write-Host "TRUEVR BATCHINSTALLATION BASIC" -ForegroundColor Green

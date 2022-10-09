@@ -47,8 +47,14 @@ $preinstalledApps = @(
     "Microsoft.LanguageExperiencePacken-GB",
     "Microsoft.OneConnect",
     "Microsoft.WindowsAlarms",
-    "AD2F1837.HPJumpStarts"
-
+    "AD2F1837.HPJumpStarts",
+    "Microsoft.SkypeApp",
+    "Microsoft.WindowsFeedbackHub",
+    "Microsoft.WindowsMaps",
+    "Microsoft.WindowsSoundRecorder",
+    "Microsoft.MicrosoftStickyNotes",
+    "Microsoft.MSPaint",
+    "Microsoft.MicrosoftOfficeHub"
 )
 
 Write-Host "- uninstalling apps..." 
