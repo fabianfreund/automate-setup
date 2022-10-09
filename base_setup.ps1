@@ -65,6 +65,20 @@ powercfg.exe /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 Write-Host ""
 Write-Host "Highperformance mode set" -ForegroundColor Green
 
+#Install C++ Redistributables
+#------------------------------------------------------------------
+
+Write-Host ""
+Write-Host "Install C++ Redistributables..." 
+Write-Host "------------------------------------" 
+Write-Host ""
+
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://vcredist.com/install.ps1'))
+
+Write-Host ""
+Write-Host "C++ Redistributables installed..." 
+
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 #install from url: https://stackoverflow.com/questions/33205298/how-to-use-powershell-to-download-a-script-file-then-execute-it-with-passing-in
