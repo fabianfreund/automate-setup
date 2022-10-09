@@ -5,6 +5,7 @@ $startTime = Get-Date
 
 #START BATCH INSTALLATION
 #------------------------------------------------------------------
+
 Write-Host "  "                                      
 Write-Host "                                      /(((((((           (((("                                   
 Write-Host "                                  (((((((/////////   ///////("                       

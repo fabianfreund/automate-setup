@@ -54,7 +54,8 @@ $preinstalledApps = @(
     "Microsoft.WindowsSoundRecorder",
     "Microsoft.MicrosoftStickyNotes",
     "Microsoft.MSPaint",
-    "Microsoft.MicrosoftOfficeHub"
+    "Microsoft.MicrosoftOfficeHub",
+    "MicrosoftTeams"
 )
 
 Write-Host "- uninstalling apps..." 
