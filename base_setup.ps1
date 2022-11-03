@@ -80,6 +80,26 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Write-Host ""
 Write-Host "C++ Redistributables installed" 
 
+#Disable Sleep mode
+#------------------------------------------------------------------
+
+Write-Host ""
+Write-Host "Disable Sleep mode..." 
+Write-Host "------------------------------------" 
+Write-Host ""
+
+powercfg.exe -x -monitor-timeout-ac 0
+powercfg.exe -x -monitor-timeout-dc 0
+powercfg.exe -x -disk-timeout-ac 0
+powercfg.exe -x -disk-timeout-dc 0
+powercfg.exe -x -standby-timeout-ac 0
+powercfg.exe -x -standby-timeout-dc 0
+powercfg.exe -x -hibernate-timeout-ac 0
+powercfg.exe -x -hibernate-timeout-dc 0
+
+Write-Host ""
+Write-Host "Sleep mode diabled" 
+
 #REMOVE PREINSTALLED SOFTWARE
 #------------------------------------------------------------------
 #install from url: https://stackoverflow.com/questions/33205298/how-to-use-powershell-to-download-a-script-file-then-execute-it-with-passing-in
