@@ -55,7 +55,13 @@ $preinstalledApps = @(
     "Microsoft.MicrosoftStickyNotes",
     "Microsoft.MSPaint",
     "Microsoft.MicrosoftOfficeHub",
-    "MicrosoftTeams"
+    "MicrosoftTeams",
+    "Microsoft.549981C3F5F10_8wekyb3d8bbwe",
+    "Microsoft.BingWeather_8wekyb3d8bbwe",
+    "Microsoft.SkypeApp_kzf8qxf38zg5c",
+    "Microsoft.Teams",
+    "Nvidia.GeForceExperience"
+
 )
 
 Write-Host "- uninstalling apps..." 
